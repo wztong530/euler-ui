@@ -1,0 +1,63 @@
+/* 全局通用样式配置 */
+/* 页面容器 EcContainer */
+@ecContainerBg: #f5f6f8; //页面容器-背景
+@ecContainerPadding: 12px; //页面容器-内边距
+
+/* 布局容器 EcVLayout/EcHLayout */
+@ecLayoutVSpace: 8px; //垂直布局容器-分区间隔
+@ecLayoutHSpace: 8px; //水平布局容器-分区间隔
+
+/* 面板 EcPanel */
+@ecPanelBg: #ffffff; //面板-背景
+@ecPanelPadding: 8px 12px; //面板-内边距
+@ecPanelSpace: 8px; //面板-分区间隔
+
+/* 查询面板 EcQueryPanel */
+@ecFormItemVSpace: 12px; //表单项(查询项)之间的垂直间隔
+@ecFormItemHSpace: 16px; //表单项(查询项)之间的水平间隔
+
+/* 其他通用样式 */
+@ecFooterPadding: 8px 12px; //底部操作区-内边距
+@ecRadius: 4px; //通用边框圆角大小，作用于查询区、面板、表单分组、弹窗等 (请设置单个数值)
+@ecBtnSpace: 8px; //按钮之间的间距 (通常施加于按钮的左外边距)
+@ecBorderColor: #e8e8e8; //默认边框颜色
+@ecTitleColor: #000000D9; //标题、表单项、查询项文本域文字颜色
+@ecPrimary: #1890ff; //便捷操作按钮的hover状态颜色
+
+* {
+  font-family: '微软雅黑', 'Microsoft YaHei', Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 14px;
+}
+
+[v-cloak] {
+  display: none;
+}
+
+/* 显示一行，省略号 */
+.ec-ellipsis-1 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+}
+
+/* 显示两行，省略号 */
+.ec-ellipsis-2 {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+/* 标题 */
+.ec-title {
+  display: inline-block;
+  color: @ecTitleColor;
+  font-size: 14px;
+  font-weight: bold;
+  font-family: "微软雅黑 Bold", "微软雅黑 Regular", "微软雅黑", sans-serif;
+}
+
+

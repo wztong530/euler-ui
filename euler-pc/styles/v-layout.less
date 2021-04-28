@@ -1,0 +1,31 @@
+@import "base.less";
+
+.ec-v-layout {
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  flex-flow: column;
+
+  .ec-v-layout-item {
+    width: 100%;
+    overflow: auto;
+    margin-top: @ecLayoutVSpace;
+
+    &.ec-inner {
+      position: relative;
+
+      .ec-v-layout-item__inner {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        overflow: auto;
+      }
+    }
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+}

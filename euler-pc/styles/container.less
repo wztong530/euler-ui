@@ -1,0 +1,34 @@
+@import "base.less";
+
+.ec-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+
+  .ec-container-header {
+    background-color: #ffffff;
+    box-sizing: border-box;
+    border-bottom: 1px solid @ecBorderColor;
+  }
+
+  .ec-container-body {
+    flex: 1;
+    background: @ecContainerBg;
+    padding: @ecContainerPadding;
+    box-sizing: border-box;
+    overflow: auto;
+
+    &.no-padding {
+      padding: 0;
+    }
+  }
+
+  .ec-container-footer {
+    background-color: #ffffff;
+    padding: @ecFooterPadding;
+    box-sizing: border-box;
+    border-top: 1px solid @ecBorderColor;
+    text-align: right;
+  }
+}

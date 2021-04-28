@@ -1,0 +1,16 @@
+@import "base.less";
+
+.ec-h-layout {
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+
+  .ec-h-layout-item {
+    overflow: auto;
+    margin-left: @ecLayoutHSpace;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+}

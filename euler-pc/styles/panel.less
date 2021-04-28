@@ -1,0 +1,103 @@
+@import "base.less";
+
+.ec-panel {
+  width: 100%;
+  height: 100%;
+  background: @ecPanelBg;
+  box-sizing: border-box;
+  padding: @ecPanelPadding;
+  border-radius: @ecRadius;
+  display: flex;
+  flex-flow: column;
+  overflow: auto;
+
+  &>div {
+    flex: none;
+    margin-top: @ecPanelSpace;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  .ec-panel-header {
+    display: flex;
+
+    .ec-panel-header-main {
+      flex: 1 0 auto;
+      display: flex;
+
+      &>div {
+        flex: none;
+      }
+
+      .ec-panel-header__content {
+        flex: 1 0 auto;
+      }
+
+      .ec-panel-header__left {
+        margin-right: auto;
+      }
+
+      .ec-panel-header__middle {
+        margin: 0 auto;
+      }
+
+      .ec-panel-header__right {
+        margin-left: auto;
+      }
+    }
+
+    .ec-panel-header__tool {
+      flex: none;
+      align-self: center;
+
+      .ec-panel-header__tool__btn {
+        margin-left: 8px;
+
+        &:hover {
+          cursor: pointer;
+          color: @ecPrimary;
+        }
+      }
+    }
+  }
+
+  .ec-panel-toolbar {
+    display: flex;
+
+    &>div {
+      flex: none;
+    }
+
+    .ec-panel-toolbar__content {
+      flex: 1 0 auto;
+    }
+
+    .ec-panel-toolbar__left {
+      margin-right: auto;
+    }
+
+    .ec-panel-toolbar__middle {
+      margin: 0 auto;
+    }
+
+    .ec-panel-toolbar__right {
+      margin-left: auto;
+    }
+  }
+
+  .ec-panel-body {
+    flex: 1 0 100px;
+    position: relative;
+
+    .ec-panel-body__inner {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      overflow: auto;
+    }
+  }
+}

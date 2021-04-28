@@ -1,0 +1,39 @@
+@import "base.less";
+
+/deep/.ec-modal {
+  padding-bottom: 0;
+  .ant-modal-content {
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    border-radius: @ecRadius;
+    .ant-modal-header {
+      padding: 8px 12px;
+      border-radius: @ecRadius @ecRadius 0 0;
+      box-sizing: border-box;
+    }
+    .ant-modal-body {
+      flex: 1;
+      overflow: auto;
+    }
+    .ant-modal-footer {
+      padding: @ecFooterPadding;
+      border-radius: 0 0 @ecRadius @ecRadius;
+    }
+    .ant-modal-close-x {
+      width: 38px;
+      height: 38px;
+      line-height: 38px;
+    }
+  }
+  &.no-footer {
+    .ant-modal-content {
+      display: block;
+      .ant-modal-body {
+        height: calc(100% - 39px);
+        border-radius: 0 0 @ecRadius @ecRadius;
+      }
+    }
+  }
+}
+
