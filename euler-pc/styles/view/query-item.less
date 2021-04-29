@@ -1,0 +1,46 @@
+@import "../base.less";
+
+.ec-query-item {
+  display: flex;
+  align-items: center;
+  padding: @ecFormItemVSpace/2 @ecFormItemHSpace/2;
+  box-sizing: border-box;
+
+  &.alone {
+    padding: 0;
+  }
+
+  .ec-query-item__label {
+    flex: none;
+    color: @ecTitleColor;
+
+    &::after {
+      content: ':';
+      position: relative;
+      top: -0.5px;
+      margin: 0 8px 0 2px;
+    }
+  }
+
+  .ec-query-item__control {
+    flex: 1 0 60px;
+
+    &>* {
+      width: 100%;
+    }
+  }
+
+  &.vertical {
+    display: block;
+
+    .ec-query-item__label {
+      width: 100% !important;
+      text-align: left !important;
+      margin-bottom: 8px;
+
+      &:after {
+        display: none;
+      }
+    }
+  }
+}

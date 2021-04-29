@@ -19,7 +19,7 @@ module.exports = {
   chainWebpack: config => {
     config.module
       .rule('js')
-      .include.add(path.resolve(__dirname, 'packages')).end()
+      .include.add(path.resolve(__dirname, 'euler-pc/packages')).end()
       .use('babel')
       .loader('babel-loader')
       .tap(options => {

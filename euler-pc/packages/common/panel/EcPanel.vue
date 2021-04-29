@@ -125,5 +125,5 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@import "../../styles/panel.less";
+@import "../../../styles/common/panel.less";
 </style>

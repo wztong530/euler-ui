@@ -33,6 +33,7 @@ module.exports = {
     "no-irregular-whitespace": 2, //不规则空格
     "space-before-function-paren": 0, //函数名称或function关键字与开始参数之间允许有空格
     "spaced-comment": 0, //注释内前后强制间距一致性
+    "vue/valid-v-for": 0, //vue在使用v-for时必须添加key值
     // "prettier/prettier": "off",
   }
 }

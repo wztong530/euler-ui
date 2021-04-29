@@ -73,5 +73,5 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@import "../../styles/h-layout.less";
+@import "../../../styles/common/h-layout.less";
 </style>

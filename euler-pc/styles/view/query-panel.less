@@ -1,0 +1,44 @@
+@import "../base.less";
+
+.ec-query-panel {
+  background: @ecPanelBg;
+  padding: @ecPanelPadding;
+  box-sizing: border-box;
+
+  .ec-query-panel__content {
+    display: flex;
+    flex-flow: wrap;
+    align-items: center;
+    margin: -@ecFormItemVSpace/2 -@ecFormItemHSpace/2;
+
+    .ec-query-panel-action {
+      flex: none;
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: @ecFormItemVSpace/2 @ecFormItemHSpace/2;
+      box-sizing: border-box;
+
+      .ec-query-panel-btn {
+        margin-left: @ecBtnSpace;
+      }
+
+      .ec-query-action__fold {
+        transform-origin: center;
+        transition: all 0.25s linear;
+        position: relative;
+        left: -4px;
+
+        &.fold {
+          transform: rotateX(180deg) rotateZ(90deg);
+        }
+
+        &.unfold {
+          transform: rotateX(0) rotateZ(90deg);
+        }
+      }
+    }
+  }
+
+}

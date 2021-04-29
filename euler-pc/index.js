@@ -1,7 +1,27 @@
-import EcContainer from './packages/container'
+import EcContainer from './packages/common/container/index.js'
+import EcVLayout from './packages/common/v-layout/index.js'
+import EcHLayout from './packages/common/h-layout/index.js'
+import EcPanel from './packages/common/panel/index.js'
+import EcModal from './packages/common/modal/index.js'
+import EcQueryPanel from './packages/view/query-panel/index.js'
+import EcQueryItem from './packages/view/query-item/index.js'
+import EcHigherQuery from './packages/view/higher-query/index.js'
+import EcReload from './packages/view/reload/index.js'
+import EcExport from './packages/view/export/index.js'
+import EcSetting from './packages/view/setting/index.js'
 
 const components = [
-  EcContainer
+  EcContainer,
+  EcVLayout,
+  EcHLayout,
+  EcPanel,
+  EcModal,
+  EcQueryPanel,
+  EcQueryItem,
+  EcHigherQuery,
+  EcReload,
+  EcExport,
+  EcSetting
 ]
 
 const install = function (Vue, opts = {}) {
@@ -20,5 +40,15 @@ export default {
 }
 
 export {
-  EcContainer
+  EcContainer,
+  EcVLayout,
+  EcHLayout,
+  EcPanel,
+  EcModal,
+  EcQueryPanel,
+  EcQueryItem,
+  EcHigherQuery,
+  EcReload,
+  EcExport,
+  EcSetting
 }

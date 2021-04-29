@@ -3,12 +3,14 @@
     v-bind="$attrs"
     v-on="$listeners"
     v-model="visible"
-    :title="ecTitle"
     :body-style="{ padding: 0 }"
     :dialog-class="`ec-modal ${hasFooter ? '' : 'no-footer'}`"
     :dialog-style="{ height: ecHeight, top: ecTop }"
   >
     <slot></slot>
+    <template v-if="$slots.title" v-slot:title>
+      <slot name="title" />
+    </template>
     <template v-if="$slots.footer" v-slot:footer>
       <slot name="footer" />
     </template>
@@ -32,11 +34,6 @@ export default {
       type: Boolean,
       default: false
     },
-    // 弹窗标题
-    title: {
-      type: String,
-      default: ''
-    },
     // 弹窗高度 支持 px | % | vh
     height: {
       type: String,
@@ -57,9 +54,6 @@ export default {
         this.$emit('input', val)
       }
     },
-    ecTitle() {
-      return this.title || ' '
-    },
     ecHeight() {
       return /^\d+$/.test(this.height) ? this.height + "px" : this.height
     },
@@ -74,5 +68,5 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@import "../../styles/modal.less";
+@import "../../../styles/common/modal.less";
 </style>

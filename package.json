@@ -1,11 +1,16 @@
 {
-  "name": "euler-ui",
+  "name": "wzt-euler-ui",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "main": "euler-pc/index.js",
+  "author": {
+    "name": "wztong"
+  },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "lib": "vue-cli-service build --target lib --inline-vue euler-pc/packages/index.js"
   },
   "dependencies": {
     "ant-design-vue": "^1.7.4",
