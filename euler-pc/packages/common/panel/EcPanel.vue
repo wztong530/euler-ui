@@ -5,7 +5,7 @@
         <div class="ec-panel-header__content" v-if="$slots.header">
           <slot name="header" />
         </div>
-        <template v-if="$slots.header">
+        <template v-if="!$slots.header">
           <div class="ec-panel-header__left">
             <slot name="header-left">
               <div class="ec-title" style="margin: 2px 0;">{{title}}</div>
