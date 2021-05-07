@@ -39,8 +39,11 @@
         </div>
       </template>
     </div>
-    <div class="ec-panel-body" v-if="$slots.body">
-      <div class="ec-panel-body__inner">
+    <div class="ec-panel-body" :class="{'ec-panel-auto': auto}" v-if="$slots.body">
+      <template v-if="auto">
+        <slot name="body" />
+      </template>
+      <div class="ec-panel-body__inner" v-else>
         <slot name="body" />
       </div>
     </div>
@@ -83,16 +86,28 @@ export default {
    *  6.面板控制按钮：
    *    6.1.showHFold：是否展示水平折叠按钮，默认false
    *  7.具体可根据实际的需要灵活使用
-   *  8.注：header系、toolbar系或footer的子元素未进行样式控制，
-   *       若导致水平大小超出面板宽度，则面板会出现水平滚动条，
-   *       若导致垂直大小超出面板高度，则面板会出现垂直滚动条，
-   *       且未防止body区消失，已提前设置body的最小高度100px
+   *  8.注：
+   *      8.1.header系、toolbar系或footer的子元素未进行样式控制，
+   *          若导致水平大小超出面板宽度，则面板会出现水平滚动条，
+   *          若导致垂直大小超出面板高度，则面板会出现垂直滚动条，
+   *          且未防止body区消失，已提前设置body的最小高度100px
+   *      8.2.面板高度默认为父元素的100%，若父元素无实际高度，
+   *          且使用时期望body(主内容区)根据其子元素实际高度撑开，
+   *          则可设置auto属性为true
    */
   props: {
     // 面板标题
     title: {
       type: String,
       default: ''
+    },
+    /**
+     * 是否使用自动布局(流式布局)，默认false
+     * body(主内容区)根据其子元素实际高度撑开
+     */
+    auto: {
+      type: Boolean,
+      default: false
     },
     // 是否展示水平折叠按钮
     showHFold: {

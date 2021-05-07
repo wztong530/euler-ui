@@ -1,13 +1,12 @@
 <template>
   <div class="ec-v-layout" :style="{display: auto ? 'block' : 'flex'}">
     <template v-for="item in ecItems">
-      <div class="ec-v-layout-item" :key="item.name" v-if="item.size === 'auto'"
-           :style="{ height: item.size, flex: item.flex }">
-        <slot :name="item.name" />
-      </div>
-      <div class="ec-v-layout-item ec-inner" :key="item.name" v-else
-           :style="{ height: item.size, flex: item.flex }">
-        <div class="ec-v-layout-item__inner">
+      <div class="ec-v-layout-item" :class="{'ec-v-unauto': item.size !== 'auto'}"
+           :key="item.name" :style="{ height: item.size, flex: item.flex }">
+        <template v-if="item.size === 'auto'">
+          <slot :name="item.name" />
+        </template>
+        <div class="ec-v-layout-item__inner" v-else>
           <slot :name="item.name" />
         </div>
       </div>
