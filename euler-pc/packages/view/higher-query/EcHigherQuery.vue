@@ -2,56 +2,44 @@
   <div class="ec-higher-query">
     <!-- 按钮 -->
     <a-button class="ec-higher-query-btn" type="link" @click="visible = !visible">
-      高级
-      <a-icon class="ec-higher-query__icon" type="down" />
+      高级<a-icon class="ec-higher-query__icon" type="down" />
     </a-button>
 
-    <!-- 遮罩层 -->
-    <transition name="ec-higher-query__mask">
-      <div class="ec-higher-query-panel__mask" :class="{'mask-transparent': maskTransparent}"
-           v-if="mask" v-show="visible" @click="__maskClose"></div>
-    </transition>
-    <!-- 高级查询面板 -->
-    <transition name="ec-higher-query">
-      <div class="ec-higher-query-panel" :style="{width: ecWidth, height: ecHeight}"
-           v-show="visible">
-        <div class="ec-higher-query-panel__header">
-          <div class="ec-higher-query-panel__title">高级查询</div>
-          <div class="ec-higher-query-panel__close" @click="visible = false">
-            <a-icon class="ec-higher-query-panel__close_icon" type="close" />
+    <!-- 高级查询面板抽屉 -->
+    <a-drawer :visible="visible" title="高级查询" class="ec-higher-query-panel__wrapper"
+              :width="ecWidth" :drawer-style="{ height: ecHeight }"
+              :mask="mask" :mask-closable="maskClosable" @close="visible = false">
+      <div class="ec-higher-query-panel__body">
+        <div class="ec-higher-query-items__box">
+          <div class="ec-higher-query-items">
+            <ec-query-panel :show-action="false" :col-count="colCount" :layout="layout"
+                            v-bind="$attrs">
+              <slot />
+            </ec-query-panel>
           </div>
         </div>
-        <div class="ec-higher-query-panel__body">
-          <div class="ec-higher-query-items__box">
-            <div class="ec-higher-query-items">
-              <ec-query-panel :show-action="false" :col-count="colCount" :layout="layout"
-                              v-bind="$attrs">
-                <slot />
-              </ec-query-panel>
-            </div>
-          </div>
-          <div class="ec-higher-query-scheme">
-            <div class="ec-higher-query-scheme__title">保存的方案</div>
-            <div class="ec-higher-query-scheme__box">
-              <div class="ec-higher-query-scheme-items">
-                <div class="ec-higher-query-scheme-item" v-for="i in 10" :key="i">
-                  <a-icon style="color: #909399; margin-right: 4px;" type="file-search" />
-                  <div class="ec-ellipsis-1">生产查询方案{{i}}</div>
-                  <a-icon class="ec-higher-query-scheme-item__delete" type="delete" />
-                </div>
+        <div class="ec-higher-query-scheme">
+          <div class="ec-higher-query-scheme__title">保存的方案</div>
+          <div class="ec-higher-query-scheme__box">
+            <div class="ec-higher-query-scheme-items">
+              <div class="ec-higher-query-scheme-item" v-for="i in 10" :key="i">
+                <a-icon style="color: #909399; margin-right: 4px;" type="file-search" />
+                <div class="ec-ellipsis-1">生产查询方案{{i}}</div>
+                <a-icon class="ec-higher-query-scheme-item__delete" type="delete" />
               </div>
             </div>
           </div>
         </div>
-        <div class="ec-higher-query-panel__footer">
-          <a-button @click="__saveScheme">保存查询方案</a-button>
-          <a-button style="margin-left: 8px" @click="__reset">重置</a-button>
-          <a-button style="margin-left: auto" @click="visible = false">取消</a-button>
-          <a-button style="margin-left: 8px" type="primary" :loading="loading"
-                    @click="__query">查询</a-button>
-        </div>
       </div>
-    </transition>
+      <div class="ec-higher-query-panel__footer">
+        <a-button @click="__saveScheme">保存查询方案</a-button>
+        <a-button style="margin-left: 8px" @click="__reset">重置</a-button>
+        <a-button style="margin-left: auto" @click="visible = false">取消</a-button>
+        <a-button style="margin-left: 8px" type="primary" :loading="loading"
+                  @click="__query">查询</a-button>
+      </div>
+    </a-drawer>
+
     <!-- 保存查询方案弹窗 -->
     <ec-modal title="请输入查询方案的名称" :keyboard="false" :mask-closable="false"
               width="380px" height="168px" top="25vh" v-model="schemeVisible"
@@ -72,8 +60,8 @@ export default {
   /**
    * 高级查询：
    * 属性：
-   *  colCount、layout、labelWidth、labelAlign 与EcQueryPanel的使用描述一致，
-   *  但在此组件中 colCount默认为 2(2列)，layout默认为 vertical(垂直布局)
+   *  colCount、Layout、labelWidth、labelAlign 与EcQueryPanel的使用描述一致，
+   *  但在此组件中 colCount默认为 2(2列)，layout默认为 horizontal(水平布局)
    * 事件：
    *    1.query：点击查询时触发的事件，默认带查询加载效果，停止加载效果可调用事件的回调函数
    *             若不需要加载效果，可设置show-loading属性为false
@@ -89,12 +77,12 @@ export default {
     EcModal
   },
   props: {
-    // 弹窗宽度，仅支持单位px(若只有数字则会自动补齐单位px)，默认 750px
+    // 面板抽屉宽度，仅支持单位px(若只有数字则会自动补齐单位px)，默认 750px
     width: {
       type: String,
       default: '750px'
     },
-    // 弹窗高度，仅支持单位px(若只有数字则会自动补齐单位px)，默认350px
+    // 面板抽屉高度，仅支持单位px(若只有数字则会自动补齐单位px)，默认350px
     height: {
       type: String,
       default: '350px'
@@ -108,11 +96,6 @@ export default {
     maskClosable: {
       type: Boolean,
       default: true
-    },
-    // 遮罩层是否透明，默认false
-    maskTransparent: {
-      type: Boolean,
-      default: false
     },
     // 是否显示重置按钮，默认true
     showReset: {
@@ -136,10 +119,10 @@ export default {
         }
       }
     },
-    // 统一设置所有查询项的布局模式 (查询项亦可单独设置进行覆盖)，默认vertical(水平布局)
+    // 统一设置所有查询项的布局模式 (查询项亦可单独设置进行覆盖)，默认horizontal(水平布局)
     layout: {
       type: String,
-      default: 'vertical'
+      default: 'horizontal'
     }
   },
   data() {
@@ -182,16 +165,10 @@ export default {
       this.schemeVisible = false
       console.log(this.schemeName)
     },
-    // 点击遮罩层关闭弹窗
-    __maskClose() {
-      if (this.maskClosable) {
-        this.visible = false
-      }
-    }
   }
 }
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
 @import "../../../styles/view/higher-query.less";
 </style>
