@@ -1,5 +1,5 @@
 <template>
-  <div class="ec-handy">
+  <div class="ec-handy ec-btn-ml">
     <a-tooltip title="刷新">
       <a-icon class="ec-handy-btn" type="reload" @click="__reload"/>
     </a-tooltip>
@@ -21,7 +21,3 @@ export default {
   }
 }
 </script>
-
-<style lang="less" scoped>
-@import "../../../styles/view/handy.less";
-</style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="ec-handy">
+  <div class="ec-handy ec-btn-ml">
     <a-tooltip title="列设置">
       <a-icon class="ec-handy-btn" type="setting"/>
     </a-tooltip>
@@ -11,7 +11,3 @@ export default {
   name: "EcSetting"
 }
 </script>
-
-<style lang="less" scoped>
-@import "../../../styles/view/setting.less";
-</style>

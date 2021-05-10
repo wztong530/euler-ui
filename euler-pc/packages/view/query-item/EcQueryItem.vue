@@ -1,7 +1,7 @@
 <template>
   <div class="ec-query-item" :class="{
-    alone: colCount === 1,
-    vertical: layout === 'vertical' || itemLayout === 'vertical'
+    'ec-query-item-alone': colCount === 1,
+    'ec-query-item-vertical': layout === 'vertical' || itemLayout === 'vertical'
   }"
        :style="{width: col / colCount * 100 + '%'}">
     <div class="ec-query-item__label" v-if="label" :style="{
@@ -84,6 +84,3 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
-@import "../../../styles/view/query-item.less";
-</style>

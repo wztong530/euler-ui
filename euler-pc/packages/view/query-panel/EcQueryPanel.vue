@@ -11,14 +11,14 @@
       <div class="ec-query-panel-action" v-if="showAction"
            :style="{width: 1 / colCount * 100 + '%'}">
         <a-button v-if="showReset" @click="__reset">重置</a-button>
-        <a-button class="ec-query-panel-btn" type="primary" :loading="loading"
+        <a-button type="primary" :loading="loading"
                   @click="__query">查询
         </a-button>
-        <a-button class="ec-query-panel-btn" style="padding: 0;" type="link"
+        <a-button class="ec-query-panel-btn__link" type="link"
                   v-if="showFold" @click="isFold = !isFold">
           {{isFold ? "展开" : "收起"}}
           <a-icon class="ec-query-action__fold" type="double-right"
-                  :class="isFold ? 'unfold' : 'fold'" />
+                  :class="isFold ? 'ec-query-action__fold-unfold' : 'ec-query-action__fold-fold'"/>
         </a-button>
       </div>
     </div>
@@ -101,7 +101,12 @@ export default {
     showAction: {
       type: Boolean,
       default: true
-    }
+    },
+    // 查询区域是否是收起状态，默认false(展开)
+    isFold: {
+      type: Boolean,
+      default: false
+    },
   },
   provide() {
     return {
@@ -113,7 +118,6 @@ export default {
   },
   data() {
     return {
-      isFold: true, //是否为收起状态
       loading: false //查询加载效果
     }
   },
@@ -135,6 +139,3 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
-@import "../../../styles/view/query-panel.less";
-</style>

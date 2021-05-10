@@ -1,18 +1,16 @@
-@import "../base.less";
-
 .ec-query-item {
   display: flex;
   align-items: center;
   padding: @ecFormItemVSpace/2 @ecFormItemHSpace/2;
   box-sizing: border-box;
 
-  &.alone {
+  &.ec-query-item-alone {
     padding: 0;
   }
 
   .ec-query-item__label {
     flex: none;
-    color: @ecTitleColor;
+    color: #000000D9;
 
     &::after {
       content: ':';
@@ -30,7 +28,7 @@
     }
   }
 
-  &.vertical {
+  &.ec-query-item-vertical {
     display: block;
 
     .ec-query-item__label {

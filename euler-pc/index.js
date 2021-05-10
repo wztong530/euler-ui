@@ -3,12 +3,14 @@ import EcVLayout from './packages/common/v-layout/index.js'
 import EcHLayout from './packages/common/h-layout/index.js'
 import EcPanel from './packages/common/panel/index.js'
 import EcModal from './packages/common/modal/index.js'
+import EcInline from './packages/common/inline/index.js'
 import EcQueryPanel from './packages/view/query-panel/index.js'
 import EcQueryItem from './packages/view/query-item/index.js'
 import EcHigherQuery from './packages/view/higher-query/index.js'
 import EcReload from './packages/view/reload/index.js'
 import EcExport from './packages/view/export/index.js'
 import EcSetting from './packages/view/setting/index.js'
+import "./styles/global.less"
 
 const components = [
   EcContainer,
@@ -16,12 +18,13 @@ const components = [
   EcHLayout,
   EcPanel,
   EcModal,
+  EcInline,
   EcQueryPanel,
   EcQueryItem,
   EcHigherQuery,
   EcReload,
   EcExport,
-  EcSetting
+  EcSetting,
 ]
 
 const install = function (Vue, opts = {}) {
@@ -45,10 +48,11 @@ export {
   EcHLayout,
   EcPanel,
   EcModal,
+  EcInline,
   EcQueryPanel,
   EcQueryItem,
   EcHigherQuery,
   EcReload,
   EcExport,
-  EcSetting
+  EcSetting,
 }

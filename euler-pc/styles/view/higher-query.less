@@ -1,8 +1,5 @@
-@import "../base.less";
-
 .ec-higher-query {
   display: inline-block;
-  margin-left: @ecBtnSpace;
 
   .ec-higher-query-btn {
     padding: 0;
@@ -57,12 +54,12 @@
 
           .ec-higher-query-scheme {
             width: 180px;
-            border-left: 1px solid @ecBorderColor;
+            border-left: 1px solid #e8e8e8;
             display: flex;
             flex-flow: column;
 
             .ec-higher-query-scheme__title {
-              border-bottom: 1px solid @ecBorderColor;
+              border-bottom: 1px solid #e8e8e8;
               padding: 4px;
               text-align: center;
               color: #909399;
@@ -87,13 +84,18 @@
                   padding: 4px 12px;
                   margin: 4px 0;
 
+                  .ec-higher-query-scheme-item-icon {
+                    color: #909399;
+                    margin-right: 4px;
+                  }
+
                   .ec-higher-query-scheme-item__delete {
                     margin-left: auto;
                     color: #909399;
                     display: none;
 
                     &:hover {
-                      color: @ecPrimary;
+                      color: #1890ff;
                     }
                   }
 
@@ -113,8 +115,8 @@
 
         .ec-higher-query-panel__footer {
           display: flex;
-          padding: @ecFooterPadding;
-          border-top: 1px solid @ecBorderColor;
+          padding: @ecPanelPadding;
+          border-top: 1px solid #e8e8e8;
         }
       }
     }
@@ -125,4 +127,9 @@
       line-height: 38px;
     }
   }
+}
+
+.ec-higher-query-modal-content {
+  height: 100%;
+  padding: 24px;
 }

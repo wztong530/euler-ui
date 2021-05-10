@@ -3,8 +3,7 @@
     v-bind="$attrs"
     v-on="$listeners"
     v-model="visible"
-    :body-style="{ padding: 0 }"
-    :dialog-class="`ec-modal ${hasFooter ? '' : 'no-footer'}`"
+    :dialog-class="`ec-modal ${hasFooter ? '' : 'ec-modal-no-footer'}`"
     :dialog-style="{ height: ecHeight, top: ecTop }"
   >
     <slot></slot>
@@ -67,6 +66,3 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
-@import "../../../styles/common/modal.less";
-</style>

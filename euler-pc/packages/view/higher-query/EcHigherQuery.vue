@@ -1,5 +1,5 @@
 <template>
-  <div class="ec-higher-query">
+  <div class="ec-higher-query ec-btn-ml">
     <!-- 按钮 -->
     <a-button class="ec-higher-query-btn" type="link" @click="visible = !visible">
       高级<a-icon class="ec-higher-query__icon" type="down" />
@@ -23,7 +23,7 @@
           <div class="ec-higher-query-scheme__box">
             <div class="ec-higher-query-scheme-items">
               <div class="ec-higher-query-scheme-item" v-for="i in 10" :key="i">
-                <a-icon style="color: #909399; margin-right: 4px;" type="file-search" />
+                <a-icon class="ec-higher-query-scheme-item-icon" type="file-search" />
                 <div class="ec-ellipsis-1">生产查询方案{{i}}</div>
                 <a-icon class="ec-higher-query-scheme-item__delete" type="delete" />
               </div>
@@ -33,10 +33,9 @@
       </div>
       <div class="ec-higher-query-panel__footer">
         <a-button @click="__saveScheme">保存查询方案</a-button>
-        <a-button style="margin-left: 8px" @click="__reset">重置</a-button>
+        <a-button @click="__reset">重置</a-button>
         <a-button style="margin-left: auto" @click="visible = false">取消</a-button>
-        <a-button style="margin-left: 8px" type="primary" :loading="loading"
-                  @click="__query">查询</a-button>
+        <a-button type="primary" :loading="loading" @click="__query">查询</a-button>
       </div>
     </a-drawer>
 
@@ -44,7 +43,7 @@
     <ec-modal title="请输入查询方案的名称" :keyboard="false" :mask-closable="false"
               width="380px" height="168px" top="25vh" v-model="schemeVisible"
               @ok="__saveSchemeOk">
-      <div style="height: 100%; padding: 24px">
+      <div class="ec-higher-query-modal-content">
         <a-input placeholder="请输入" v-model="schemeName" />
       </div>
     </ec-modal>
@@ -168,7 +167,3 @@ export default {
   }
 }
 </script>
-
-<style lang="less">
-@import "../../../styles/view/higher-query.less";
-</style>

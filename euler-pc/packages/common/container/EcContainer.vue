@@ -5,7 +5,7 @@
       <slot name="header" />
     </div>
     <!-- 主体区 -->
-    <div class="ec-container-body" :class="{'no-padding': noPadding}">
+    <div class="ec-container-body" :class="{'ec-container-no-padding': noPadding}">
       <slot />
     </div>
     <!-- 底部栏 -->
@@ -60,7 +60,3 @@ export default {
   }
 }
 </script>
-
-<style lang="less" scoped>
-@import "../../../styles/common/container.less";
-</style>

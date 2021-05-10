@@ -78,7 +78,3 @@ export default {
   }
 }
 </script>
-
-<style lang="less" scoped>
-@import "../../../styles/common/v-layout.less";
-</style>

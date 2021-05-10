@@ -8,7 +8,7 @@
         <template v-if="!$slots.header">
           <div class="ec-panel-header__left">
             <slot name="header-left">
-              <div class="ec-title" style="margin: 2px 0;">{{title}}</div>
+              <div class="ec-title">{{title}}</div>
             </slot>
           </div>
           <div class="ec-panel-header__middle">
@@ -20,7 +20,7 @@
         </template>
       </div>
       <div class="ec-panel-header__tool">
-        <a-icon class="ec-panel-header__tool__btn" v-if="showHFold" type="double-left" />
+        <a-icon class="ec-btn-ml ec-panel-header__tool__btn" v-if="showHFold" type="double-left" />
       </div>
     </div>
     <div class="ec-panel-toolbar" v-if="hasToolbarBox">
@@ -138,7 +138,3 @@ export default {
   }
 }
 </script>
-
-<style lang="less" scoped>
-@import "../../../styles/common/panel.less";
-</style>

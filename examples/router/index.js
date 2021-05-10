@@ -10,7 +10,7 @@ const routes = [
   },
   {
     path: '/test',
-    component: () => import('../views/Test')
+    component: () => import('../views/Test1')
   }
   /*{
     path: '/about',

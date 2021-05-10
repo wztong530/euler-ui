@@ -1,5 +1,3 @@
-@import "../base.less";
-
 .ec-query-panel {
   background: @ecPanelBg;
   padding: @ecPanelPadding;
@@ -20,8 +18,8 @@
       padding: @ecFormItemVSpace/2 @ecFormItemHSpace/2;
       box-sizing: border-box;
 
-      .ec-query-panel-btn {
-        margin-left: @ecBtnSpace;
+      .ec-query-panel-btn__link {
+        padding: 0;
       }
 
       .ec-query-action__fold {
@@ -30,15 +28,14 @@
         position: relative;
         left: -4px;
 
-        &.fold {
+        &.ec-query-action__fold-fold {
           transform: rotateX(180deg) rotateZ(90deg);
         }
 
-        &.unfold {
+        &.ec-query-action__fold-unfold {
           transform: rotateX(0) rotateZ(90deg);
         }
       }
     }
   }
-
 }
